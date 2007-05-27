@@ -1,10 +1,9 @@
 #
 # TODO:
 # - icon
-# - polish desc
 #
-Summary:	The fun, free snowballing computer game.
-Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w snieżki.
+Summary:	The fun, free snowballing computer game
+Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w snieżki
 Name:		snowballz
 Version:	0.9.1
 Release:	0.1
@@ -14,28 +13,40 @@ Source0:	http://joey101.net/snowballz/%{name}-%{version}.tar.gz
 # Source0-md5:	9b8fe55fb21e398a43694e3717312adf
 # Source 1:        %{name}.desktop
 URL:		http://joey101.net/snowballz/
-Requires:	python-pygame
-Requires:	python-PIL
-Requires:	python-Numeric
-Requires:	python-PyOpenGL
+Requires:	python
 Requires:	python-GooeyPy
+Requires:	python-Numeric
+Requires:	python-PIL
+Requires:	python-PyOpenGL
+Requires:	python-pygame
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-Take command of your army of penguins as you blaze your path to victory! 
-March through snow laden forests to conqueror new frontears and grow your small army. 
-Ambush enemy lines with blasts of freezing snowballs. 
-But don't neglect your home, invaders are just over the next snow drift! 
-Gather fish for your cold penguins to munch on as they warm up in your cozy igloo. 
-It's a snowy world you don't want to miss!
+Take command of your army of penguins as you blaze your path to
+victory! March through snow laden forests to conquer new frontiers
+and grow your small army. Ambush enemy lines with blasts of freezing
+snowballs. But don't neglect your home, invaders are just over the
+next snow drift! Gather fish for your cold penguins to munch on as
+they warm up in your cozy igloo. It's a snowy world you don't want to
+miss!
 
-Snowballz is packed with adventure and fun yearning to be discovered. 
-Grab your free copy now and play by yourself or duel it out with your friends. 
-Well, what are you waiting for?
+Snowballz is packed with adventure and fun yearning to be discovered.
+Grab your free copy now and play by yourself or duel it out with your
+friends. Well, what are you waiting for?
 
-#%description -l pl.UTF-8
+%description -l pl.UTF-8
+Obejmij dowodzenie armią pingwinów wypalając swoją drogę do
+zwycięstwa! Maszeruj poprzez wypełnione śniegiem lasy aby podbić nowe
+granice i powiększyć swoją małą armię. Wpędź linie przeciwnika w
+zasadzkę wybuchów marznących kul śnieżnych. Ale nie lekceważ swojego
+domu, najeźdźcy czyhają za następną zaspą! Gromadź ryby dla swoich
+zziębniętych pingwinów, aby miały czym pożywić się ogrzewając w
+przytulnym igloo. To jest śnieżny świat, którego nie chcesz utracić!
 
+Snowballz jest grą przepełnioną przygodą i zabawą czekającą na
+odkrycie. Pobierz darmową kopię i graj lub zmierz się z kolegami. Na
+co jeszcze czekasz?
 
 %prep
 %setup -q -n %{name}-0.9
