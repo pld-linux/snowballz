@@ -13,6 +13,7 @@ Source0:	http://joey101.net/snowballz/%{name}-%{version}.tar.gz
 # Source0-md5:	9b8fe55fb21e398a43694e3717312adf
 # Source 1:        %{name}.desktop
 URL:		http://joey101.net/snowballz/
+BuildRequires:	rpm-pythonprov
 Requires:	python
 Requires:	python-GooeyPy
 Requires:	python-Numeric
@@ -74,7 +75,7 @@ cp -f *.py	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files 
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS LICENSE README*
 %{_datadir}/%{name}
