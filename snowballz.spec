@@ -3,14 +3,14 @@
 # - icon
 #
 Summary:	The fun, free snowballing computer game
-Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w snieżki
+Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w śnieżki
 Name:		snowballz
-Version:	0.9.1
+Version:	0.9.4
 Release:	0.1
-License:	GPL v2
+License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://joey101.net/snowballz/%{name}-%{version}.tar.gz
-# Source0-md5:	9b8fe55fb21e398a43694e3717312adf
+Source0:	http://joey101.net/snowballz/files/%{name}-%{version}.tar.gz
+# Source0-md5:	064a4d1a9e2eeb2bf550c668610a9c4d
 # Source 1:        %{name}.desktop
 URL:		http://joey101.net/snowballz/
 BuildRequires:	rpm-pythonprov
@@ -19,6 +19,7 @@ Requires:	python-GooeyPy
 Requires:	python-Numeric
 Requires:	python-PIL
 Requires:	python-PyOpenGL
+Requires:	python-Rabbyt
 Requires:	python-pygame
 BuildArch:	noarch
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -37,7 +38,7 @@ Grab your free copy now and play by yourself or duel it out with your
 friends. Well, what are you waiting for?
 
 %description -l pl.UTF-8
-Obejmij dowodzenie armią pingwinów wypalając swoją drogę do
+Obejmij dowództwo nad armią pingwinów wypalając swoją drogę do
 zwycięstwa! Maszeruj poprzez wypełnione śniegiem lasy aby podbić nowe
 granice i powiększyć swoją małą armię. Wpędź linie przeciwnika w
 zasadzkę wybuchów marznących kul śnieżnych. Ale nie lekceważ swojego
@@ -50,7 +51,7 @@ odkrycie. Pobierz darmową kopię i graj lub zmierz się z kolegami. Na
 co jeszcze czekasz?
 
 %prep
-%setup -q -n %{name}-0.9
+%setup -q
 
 %install
 rm -rf $RPM_BUILD_ROOT
@@ -64,6 +65,7 @@ EOF
 
 cp -fr buildings $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr data	 $RPM_BUILD_ROOT%{_datadir}/%{name}
+#cp -fr gooeypy   $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr maps	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr plugins	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -f *.py	 $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -77,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS LICENSE README*
+%doc AUTHORS LICENSE README.txt
+%attr(755,root,root) %{_bindir}/snowballz.sh
 %{_datadir}/%{name}
 #%{_desktopdir}/%{name}.desktop
 #%{_pixmapsdir}/%{name}.png
-%attr(755,root,root) %{_bindir}/snowballz.sh
