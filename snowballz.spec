@@ -5,19 +5,18 @@
 Summary:	The fun, free snowballing computer game
 Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w śnieżki
 Name:		snowballz
-Version:	0.9.4
+Version:	0.9.5
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://joey101.net/snowballz/files/%{name}-%{version}.tar.gz
-# Source0-md5:	064a4d1a9e2eeb2bf550c668610a9c4d
+# Source0-md5:	fdfd21827b5adb3fb751d84dab8c04ec
 # Source 1:        %{name}.desktop
 URL:		http://joey101.net/snowballz/
 BuildRequires:	rpm-pythonprov
 Requires:	python
 Requires:	python-GooeyPy
 Requires:	python-Numeric
-Requires:	python-PIL
 Requires:	python-PyOpenGL
 Requires:	python-Rabbyt
 Requires:	python-pygame
