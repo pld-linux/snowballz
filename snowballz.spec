@@ -1,6 +1,3 @@
-# TODO:
-# - icon
-#
 # NOTE:
 # - this software use own GooeyPy with own modifications and new features
 #   so it can't use GooeyPy from package (python-GooeyPy.spec)
@@ -8,12 +5,12 @@ Summary:	The fun, free snowballing computer game
 Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w śnieżki
 Name:		snowballz
 Version:	0.9.5.1
-Release:	0.1
+Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://joey101.net/snowballz/files/%{name}-%{version}.tar.gz
 # Source0-md5:	197e3281cc85f9fe89a45c622e08ba0d
-# Source 1:        %{name}.desktop
+Source1:	%{name}.desktop
 URL:		http://joey101.net/snowballz/
 BuildRequires:	rpm-pythonprov
 Requires:	python
@@ -55,7 +52,7 @@ co jeszcze czekasz?
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_bindir},%{_desktopdir},%{_pixmapsdir}}
 
 cat <<'EOF' >$RPM_BUILD_ROOT%{_bindir}/%{name}
 #!/bin/sh
@@ -70,6 +67,10 @@ cp -fr maps	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr plugins	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -f *.py	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 
+install %{SOURCE1} $RPM_BUILD_ROOT%{_desktopdir}
+# workaround for missing icon
+install data/igloo.png $RPM_BUILD_ROOT%{_pixmapsdir}/%{name}.png
+
 %py_comp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_ocomp $RPM_BUILD_ROOT%{_datadir}/%{name}
 %py_postclean
@@ -82,5 +83,5 @@ rm -rf $RPM_BUILD_ROOT
 %doc AUTHORS README.txt
 %attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
-#%{_desktopdir}/%{name}.desktop
-#%{_pixmapsdir}/%{name}.png
+%{_desktopdir}/%{name}.desktop
+%{_pixmapsdir}/%{name}.png
