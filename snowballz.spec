@@ -1,21 +1,22 @@
-#
 # TODO:
 # - icon
 #
+# NOTE:
+# - this software use own GooeyPy with own modifications and new features
+#   so it can't use GooeyPy from package (python-GooeyPy.spec)
 Summary:	The fun, free snowballing computer game
 Summary(pl.UTF-8):	Zabawna, darmowa gra komputerowa w śnieżki
 Name:		snowballz
-Version:	0.9.5
+Version:	0.9.5.1
 Release:	0.1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://joey101.net/snowballz/files/%{name}-%{version}.tar.gz
-# Source0-md5:	fdfd21827b5adb3fb751d84dab8c04ec
+# Source0-md5:	197e3281cc85f9fe89a45c622e08ba0d
 # Source 1:        %{name}.desktop
 URL:		http://joey101.net/snowballz/
 BuildRequires:	rpm-pythonprov
 Requires:	python
-Requires:	python-GooeyPy
 Requires:	python-Numeric
 Requires:	python-PyOpenGL
 Requires:	python-Rabbyt
@@ -25,8 +26,8 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 Take command of your army of penguins as you blaze your path to
-victory! March through snow laden forests to conquer new frontiers
-and grow your small army. Ambush enemy lines with blasts of freezing
+victory! March through snow laden forests to conquer new frontiers and
+grow your small army. Ambush enemy lines with blasts of freezing
 snowballs. But don't neglect your home, invaders are just over the
 next snow drift! Gather fish for your cold penguins to munch on as
 they warm up in your cozy igloo. It's a snowy world you don't want to
@@ -56,15 +57,15 @@ co jeszcze czekasz?
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/%{name},%{_bindir}}
 
-cat <<'EOF' >$RPM_BUILD_ROOT%{_bindir}/snowballz.sh
+cat <<'EOF' >$RPM_BUILD_ROOT%{_bindir}/%{name}
 #!/bin/sh
-cd %{_datadir}/snowballz
+cd %{_datadir}/%{name}
 exec python snowballz.pyc $@
 EOF
 
 cp -fr buildings $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr data	 $RPM_BUILD_ROOT%{_datadir}/%{name}
-#cp -fr gooeypy   $RPM_BUILD_ROOT%{_datadir}/%{name}
+cp -fr gooeypy   $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr maps	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -fr plugins	 $RPM_BUILD_ROOT%{_datadir}/%{name}
 cp -f *.py	 $RPM_BUILD_ROOT%{_datadir}/%{name}
@@ -78,8 +79,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS LICENSE README.txt
-%attr(755,root,root) %{_bindir}/snowballz.sh
+%doc AUTHORS README.txt
+%attr(755,root,root) %{_bindir}/%{name}
 %{_datadir}/%{name}
 #%{_desktopdir}/%{name}.desktop
 #%{_pixmapsdir}/%{name}.png
