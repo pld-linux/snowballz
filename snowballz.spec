@@ -14,6 +14,8 @@ Source1:	%{name}.desktop
 URL:		http://joey101.net/snowballz/
 BuildRequires:	rpm-pythonprov
 Requires:	python
+# R: python-Cellulose by gooeypy
+Requires:	python-Cellulose
 Requires:	python-Numeric
 Requires:	python-PyOpenGL
 Requires:	python-Rabbyt
