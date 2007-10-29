@@ -16,7 +16,6 @@ BuildRequires:	rpm-pythonprov
 Requires:	python
 # R: python-Cellulose by gooeypy
 Requires:	python-Cellulose
-Requires:	python-Numeric
 Requires:	python-PyOpenGL
 Requires:	python-Rabbyt
 Requires:	python-pygame
