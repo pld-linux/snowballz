@@ -11,7 +11,7 @@ Group:		X11/Applications/Games
 Source0:	http://joey101.net/snowballz/files/%{name}-%{version}.tar.gz
 # Source0-md5:	197e3281cc85f9fe89a45c622e08ba0d
 Source1:	%{name}.desktop
-URL:		http://joey101.net/snowballz/
+URL:		http://freshmeat.net/projects/snowballz/
 BuildRequires:	rpm-pythonprov
 Requires:	python
 # R: python-Cellulose by gooeypy
